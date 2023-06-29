@@ -10,112 +10,180 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="20dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/name_task"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:text="Name of tasks"
+                android:textColor="#6D5FCA"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="20dp" />
+
+            <LinearLayout
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/name_task"
+                tools:layout_editor_absoluteX="20dp">
 
                 <TextView
-                    android:id="@+id/name_task"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name of tasks"
-                    android:textColor="#6D5FCA"
+                    android:layout_marginTop="10sp"
+                    android:layout_weight="1"
+                    android:text="Desired budget: "
+                    android:textColor="#664FA3"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="15$"
+                    android:textColor="#714DCF"
                     android:textSize="30sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    tools:textStyle="bold" />
+            </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/textView19"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/name_task"
-                    tools:layout_editor_absoluteX="20dp">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10sp"
-                        android:layout_weight="1"
-                        android:text="Desired budget: "
-                        android:textColor="#664FA3"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:text="15$"
-                        android:textColor="#714DCF"
-                        android:textSize="30sp"
-                        tools:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19"
-                    tools:layout_editor_absoluteX="10dp">
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Admissible: "
-                        android:textColor="#A3000000"
-                        android:textSize="17sp" />
-
-                    <TextView
-                        android:id="@+id/price_all"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="20$"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/textView19"
+                tools:layout_editor_absoluteX="10dp">
 
                 <TextView
-                    android:id="@+id/text_task"
+                    android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Запускаем 2 небольших магазина на WP+Woocommerce в тематике print-on-demand на зарубежные рынки. Один как копия customartsco.com (посмотрите для понимания специфики), 2й обычные товары со статичным принтом без кастомизации. Woocommerce выбран осознанно из-за большого количества готовых решений, чтобы ускорить процесс и не изобретать велосипеды.
+                    android:layout_weight="1"
+                    android:text="Admissible: "
+                    android:textColor="#A3000000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/price_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20$"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/text_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Запускаем 2 небольших магазина на WP+Woocommerce в тематике print-on-demand на зарубежные рынки. Один как копия customartsco.com (посмотрите для понимания специфики), 2й обычные товары со статичным принтом без кастомизации. Woocommerce выбран осознанно из-за большого количества готовых решений, чтобы ускорить процесс и не изобретать велосипеды.
 \n\nЕсть четкое понимание что нужно получить в итоге, часть уже сделана своими силами (выбрана тема, установлены и настроены базовые плагины). Что не получилось вынесено в ТЗ на 10-20 небольших пунктов.
-\n\nСейчас нужен человек проектно для доработки и запуска этих 2х магазинов. Требования можно разделить на две части:
-\n\n1. Нужен практический опыт сборки сайтов на WP+Woo из имеющихся решений. Темы, плагины, их настройка. Знать что где существует и можно использовать, как это будет (или не будет) работать совместно, какие возможны проблемы скорости/безопасности/обновляемости в будущем.
 \n\n2. То что таким образом не внедряется - дописать индивидуально под требования. "
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 
-                <Button
-                    android:id="@+id/respone_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button_task"
-                    android:orientation="horizontal"
-                    android:text="Respone"
-                    android:visibility="visible"
-                    app:layout_constraintTop_toBottomOf="@+id/text_task" />
+            <Button
+                android:id="@+id/respone_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_task"
+                android:orientation="horizontal"
+                android:text="Respone"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
+                tools:layout_editor_absoluteX="20dp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
+            <LinearLayout
+                android:id="@+id/linearLayout9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginTop="8dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/text_task"
+                tools:layout_editor_absoluteX="20dp">
+
+                <TextView
+                    android:id="@+id/countReply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="5"
+                    android:textSize="20dp"
+                    tools:gravity="center_vertical" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="30dp"
+                    app:srcCompat="@drawable/reply" />
+
+                <TextView
+                    android:id="@+id/countView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="25"
+                    android:textSize="20dp"
+                    tools:gravity="center_vertical" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    app:srcCompat="@drawable/view" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/respone_button"
+                tools:layout_editor_absoluteX="20dp">
+
+                <ImageView
+                    android:id="@+id/link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/link" />
+
+                <ImageView
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/ic_menu_share" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

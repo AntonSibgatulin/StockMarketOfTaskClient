@@ -32,6 +32,7 @@ public class Constant {
     public static  final String STOCK_MARKET = HOME+"stockmarket/";
 
     public static final String STOCK_MARKET_MAIN = STOCK_MARKET+"main/";
+    public static final String RESPONE = STOCK_MARKET+"respone";
 
 
     public static void saveData(Activity activity, String nameShared, String key, String value) {

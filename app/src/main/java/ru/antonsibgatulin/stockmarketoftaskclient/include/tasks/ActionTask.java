@@ -8,6 +8,27 @@ public class ActionTask {
 
     private  boolean private_task=false;
 
+    private Long time;
+    private String message;
+
+    public ActionTask() {
+    }
+
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public TaskType getTaskType() {
         return taskType;

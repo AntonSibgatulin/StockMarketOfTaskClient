@@ -5,18 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_text_edit"
-    android:padding="20dp">
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/name_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name of tasks"
-        android:textColor="#6D5FCA"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/name_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp">
+
+        <TextView
+            android:id="@+id/name_task"
+            android:layout_width="319dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1234567891111111111111111111111111"
+            android:textColor="#6D5FCA"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            app:srcCompat="@drawable/heart_unlike" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text_task"
@@ -27,7 +46,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/name_task"
-        app:layout_constraintTop_toBottomOf="@+id/name_task" />
+        app:layout_constraintTop_toBottomOf="@+id/name_list" />
 
     <LinearLayout
         android:id="@+id/textView19"
@@ -79,11 +98,13 @@
             android:id="@+id/price_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
             android:text="20$"
             android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
@@ -111,6 +132,47 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
             android:text="Respone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:gravity="right"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
+        tools:layout_editor_absoluteX="20dp">
+
+        <TextView
+            android:id="@+id/countReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="5"
+            android:textSize="20dp"
+            tools:gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/reply" />
+
+        <TextView
+            android:id="@+id/countView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="25"
+            android:textSize="20dp"
+            tools:gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            app:srcCompat="@drawable/view" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

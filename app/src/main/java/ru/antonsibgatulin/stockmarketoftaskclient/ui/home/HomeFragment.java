@@ -26,11 +26,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
-import ru.antonsibgatulin.stockmarketoftaskclient.HomeActivity;
-import ru.antonsibgatulin.stockmarketoftaskclient.R;
 import ru.antonsibgatulin.stockmarketoftaskclient.adapters.TaskAdapter;
 import ru.antonsibgatulin.stockmarketoftaskclient.databinding.FragmentHomeBinding;
 import ru.antonsibgatulin.stockmarketoftaskclient.include.constant.Constant;
