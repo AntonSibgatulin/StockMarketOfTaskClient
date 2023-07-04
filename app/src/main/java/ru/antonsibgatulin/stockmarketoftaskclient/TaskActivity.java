@@ -2,7 +2,9 @@ package ru.antonsibgatulin.stockmarketoftaskclient;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -10,6 +12,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +26,8 @@ public class TaskActivity extends AppCompatActivity {
 
     private Task task;
     private TextView name,desc,price,price_all,view,reply;
-    private Button respone;
+    private  Button respond;
+
 
 
     @Override
@@ -53,6 +57,19 @@ public class TaskActivity extends AppCompatActivity {
 
         view.setText(String.valueOf(task.getCountView()));
         reply.setText(String.valueOf(task.getCountRespond()));
+        respond = findViewById(R.id.respone_button);
+        respond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TaskActivity.this, CreateRespondActivity.class);
+                try {
+                    intent.putExtra("taskData",Constant.fromObjectToString(task));
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+                startActivity(intent);
+            }
+        });
 
     }
 

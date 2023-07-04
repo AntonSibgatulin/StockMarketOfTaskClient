@@ -33,6 +33,10 @@ public class Constant {
 
     public static final String STOCK_MARKET_MAIN = STOCK_MARKET+"main/";
     public static final String RESPONE = STOCK_MARKET+"respone";
+    public static final String RESPONE_SEND = STOCK_MARKET;
+    public static final String CHECK_SEND = STOCK_MARKET+"check";
+    private static final String NOTIFICATION = HOME+"notification/get";
+    public static final String NOTIFICATION_LOAD = NOTIFICATION;
 
 
     public static void saveData(Activity activity, String nameShared, String key, String value) {

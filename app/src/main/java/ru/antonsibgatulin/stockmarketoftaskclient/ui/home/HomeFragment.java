@@ -74,6 +74,8 @@ public class HomeFragment extends Fragment {
                         JSONArray jsonArray = new JSONArray(response);
                         Log.d("DEBUG",jsonArray.toString());
                         Constant.saveData(getActivity(),"user",lastSearch,jsonArray.toString());
+                        initLastData();
+                        taskAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -107,6 +109,7 @@ public class HomeFragment extends Fragment {
 
         try {
 
+            if(lastJsonData == null) return;
             JSONArray jsonArray = new JSONArray(lastJsonData);
             ArrayList<Task> list = new ArrayList<>();
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,11 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.util.ClassUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ru.antonsibgatulin.stockmarketoftaskclient.CreateRespondActivity;
 import ru.antonsibgatulin.stockmarketoftaskclient.CreateTaskActivity;
 import ru.antonsibgatulin.stockmarketoftaskclient.R;
 import ru.antonsibgatulin.stockmarketoftaskclient.TaskActivity;
@@ -70,7 +73,19 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         TextView name = convertView.findViewById(R.id.name_task);
         TextView viewCount = convertView.findViewById(R.id.countView);
         TextView replyCount = convertView.findViewById(R.id.countReply);
-
+        Button respond = convertView.findViewById(R.id.respone_button);
+        respond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), CreateRespondActivity.class);
+                try {
+                    intent.putExtra("taskData", Constant.fromObjectToString(task));
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+                getContext().startActivity(intent);
+            }
+        });
 
         String descr = task.getDescription();
         if (descr.length() > 200)
