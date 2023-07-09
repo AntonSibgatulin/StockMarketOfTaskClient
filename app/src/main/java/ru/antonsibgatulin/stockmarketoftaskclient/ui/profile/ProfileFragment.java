@@ -2,6 +2,7 @@ package ru.antonsibgatulin.stockmarketoftaskclient.ui.profile;
 
 import static android.view.View.GONE;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,9 +50,6 @@ public class ProfileFragment extends Fragment {
     private ArrayList<ActionTask> actionTasks;
 
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -70,20 +68,16 @@ public class ProfileFragment extends Fragment {
             throw new RuntimeException(e);
         }
         View root = binding.getRoot();
-       init();
+        init();
         return root;
     }
 
 
-    public void init(){
+    public void init() {
 
 
-       binding.posts.setAdapter(actionTaskAdapter);
+        binding.posts.setAdapter(actionTaskAdapter);
         binding.posts.setVerticalScrollBarEnabled(false);
-
-        //setListViewHeightBasedOnChildren(binding.posts);
-
-
 
         getMe();
     }
@@ -156,26 +150,17 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private void setData(User user) {
         binding.nameTextView.setText(user.getProfile().getName() + " " + user.getProfile().getSurname());
         binding.emailTextView.setText(user.getEmail());
         actionTasks.clear();
-        for (ActionTask actionTask:user.getActionTasks()){
+        if(user.getActionTasks()!=null)
+        for (ActionTask actionTask : user.getActionTasks()) {
             actionTasks.add(actionTask);
         }
         actionTaskAdapter.notifyDataSetChanged();
 
-
-
-
-      /*  ViewGroup.LayoutParams params = binding.posts.getLayoutParams();
-        params.height = 785 * actionTasks.size();
-
-        binding.posts.setLayoutParams(params);
-        binding.posts.requestLayout();
-
-
-       */
         setListViewHeightBasedOnChildren();
 
     }
@@ -197,7 +182,7 @@ public class ProfileFragment extends Fragment {
             totalHeight += view.getMeasuredHeight();
         }
         ViewGroup.LayoutParams params = binding.posts.getLayoutParams();
-        params.height = totalHeight + (binding.posts.getDividerHeight() * (listAdapter.getCount() - 1))+120;
+        params.height = totalHeight + (binding.posts.getDividerHeight() * (listAdapter.getCount() - 1)) + 120;
         binding.posts.setLayoutParams(params);
         binding.posts.requestLayout();
     }
