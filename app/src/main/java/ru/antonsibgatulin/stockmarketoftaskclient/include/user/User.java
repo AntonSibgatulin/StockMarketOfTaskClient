@@ -1,5 +1,9 @@
 package ru.antonsibgatulin.stockmarketoftaskclient.include.user;
 
+import java.util.List;
+
+import ru.antonsibgatulin.stockmarketoftaskclient.include.tasks.ActionTask;
+
 public class User {
 
 
@@ -10,6 +14,7 @@ public class User {
     private Role role;
     private Profile profile;
 
+    private List<ActionTask> actionTasks;
     public User(Long id, String email, boolean ban, boolean delete, Role role, Profile profile) {
         this.id = id;
         this.email = email;
@@ -68,6 +73,14 @@ public class User {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public List<ActionTask> getActionTasks() {
+        return actionTasks;
+    }
+
+    public void setActionTasks(List<ActionTask> actionTasks) {
+        this.actionTasks = actionTasks;
     }
 }
 

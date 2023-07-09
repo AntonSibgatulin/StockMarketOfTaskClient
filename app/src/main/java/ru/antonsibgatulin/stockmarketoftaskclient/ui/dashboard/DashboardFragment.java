@@ -51,7 +51,7 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 Constant.clearData(getActivity(),"user");
 
-                startActivity(new Intent(getActivity(), AuthActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
             }
         });

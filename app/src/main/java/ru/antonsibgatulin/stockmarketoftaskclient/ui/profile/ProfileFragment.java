@@ -59,6 +59,9 @@ public class ProfileFragment extends Fragment {
 
         binding = ActivityProfileBinding.inflate(inflater, container, false);
         try {
+            actionTasks = new ArrayList<>();
+            actionTaskAdapter = new ActionTaskAdapter(getContext(), actionTasks);
+
             User user = Constant.fromStringToUser(Constant.getUserData(getContext()));
 
             setData(user);
@@ -75,11 +78,12 @@ public class ProfileFragment extends Fragment {
     public void init(){
 
 
-        actionTasks = new ArrayList<>();
-        actionTaskAdapter = new ActionTaskAdapter(getContext(), actionTasks);
-        binding.posts.setAdapter(actionTaskAdapter);
+       binding.posts.setAdapter(actionTaskAdapter);
         binding.posts.setVerticalScrollBarEnabled(false);
-        setListViewHeightBasedOnChildren(binding.posts);
+
+        //setListViewHeightBasedOnChildren(binding.posts);
+
+
 
         getMe();
     }
@@ -155,6 +159,47 @@ public class ProfileFragment extends Fragment {
     private void setData(User user) {
         binding.nameTextView.setText(user.getProfile().getName() + " " + user.getProfile().getSurname());
         binding.emailTextView.setText(user.getEmail());
+        actionTasks.clear();
+        for (ActionTask actionTask:user.getActionTasks()){
+            actionTasks.add(actionTask);
+        }
+        actionTaskAdapter.notifyDataSetChanged();
+
+
+
+
+      /*  ViewGroup.LayoutParams params = binding.posts.getLayoutParams();
+        params.height = 785 * actionTasks.size();
+
+        binding.posts.setLayoutParams(params);
+        binding.posts.requestLayout();
+
+
+       */
+        setListViewHeightBasedOnChildren();
+
+    }
+
+    public void setListViewHeightBasedOnChildren() {
+        ListAdapter listAdapter = binding.posts.getAdapter();
+        if (listAdapter == null)
+            return;
+
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(binding.posts.getWidth(), View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, binding.posts);
+            if (i == 0)
+                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = binding.posts.getLayoutParams();
+        params.height = totalHeight + (binding.posts.getDividerHeight() * (listAdapter.getCount() - 1))+120;
+        binding.posts.setLayoutParams(params);
+        binding.posts.requestLayout();
     }
 
 

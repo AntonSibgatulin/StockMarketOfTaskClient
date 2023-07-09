@@ -18,7 +18,8 @@ import ru.antonsibgatulin.stockmarketoftaskclient.include.tasks.Task;
 import ru.antonsibgatulin.stockmarketoftaskclient.include.user.User;
 
 public class Constant {
-    public final static String HOST = "http://192.168.0.106:8080/";
+    public final static String EMPTY_HOST = "192.168.0.107";
+    public final static String HOST = "http://"+EMPTY_HOST+":8080/";
     public final static String HOME = HOST + "api/v1/";
     public final static String LOGIN = HOME + "auth/";
     public final static String REG = HOME + "reg/";

@@ -1,6 +1,8 @@
 package ru.antonsibgatulin.stockmarketoftaskclient.include.tasks;
 
 public class ActionTask {
+
+    private Long id;
     private TaskType taskType;
 
 
@@ -12,6 +14,14 @@ public class ActionTask {
     private String message;
 
     public ActionTask() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getTime() {
