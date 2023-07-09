@@ -49,6 +49,9 @@ public class ProfileFragment extends Fragment {
     private ArrayList<ActionTask> actionTasks;
 
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,6 +67,14 @@ public class ProfileFragment extends Fragment {
             throw new RuntimeException(e);
         }
         View root = binding.getRoot();
+       init();
+        return root;
+    }
+
+
+    public void init(){
+
+
         actionTasks = new ArrayList<>();
         actionTaskAdapter = new ActionTaskAdapter(getContext(), actionTasks);
         binding.posts.setAdapter(actionTaskAdapter);
@@ -71,7 +82,6 @@ public class ProfileFragment extends Fragment {
         setListViewHeightBasedOnChildren(binding.posts);
 
         getMe();
-        return root;
     }
 
 

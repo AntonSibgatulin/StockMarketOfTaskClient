@@ -111,8 +111,7 @@ public class HomeFragment extends Fragment {
 
             if(lastJsonData == null) return;
             JSONArray jsonArray = new JSONArray(lastJsonData);
-            ArrayList<Task> list = new ArrayList<>();
-
+            list.clear();
             for (int i = 0; i < jsonArray.length(); i++) {
                 String data = jsonArray.getJSONObject(i).toString();
                 Task task = null;
